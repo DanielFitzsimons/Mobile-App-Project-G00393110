@@ -17,7 +17,10 @@ export class ProductsPage implements OnInit {
   numCartItems: BehaviorSubject<number>;
 
   constructor(private navCtrl:NavController, private cartService: CartService, private modalCtrl: ModalController) { }
-
+  home(){
+    this.navCtrl.navigateBack('/home');
+  }
+  
   ngOnInit() {
     this.products = this.cartService.getProducts();
     this.cart = this.cartService.getCart();

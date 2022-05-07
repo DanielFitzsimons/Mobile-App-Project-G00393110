@@ -4,11 +4,9 @@ import { BehaviorSubject } from 'rxjs';
 export interface Product{
   id: number;
   title: string;
-  name:string;
+  name: string;
   price: number;
   amount: number;
-  
-
 }
 
 @Injectable({
@@ -16,7 +14,7 @@ export interface Product{
 })
 export class CartService {
 
-  data1: Product[] = [
+  data: Product[] = [
 
     {id: 0, title: 'Thriller', name: 'Michael Jackson', price: 9.95, amount: 10},
     {id: 1, title: 'Back in Black', name: 'AC/DC', price: 8.95, amount: 10},
@@ -30,9 +28,9 @@ private numCartItems = new BehaviorSubject(0);
 
 constructor() { }
 
-getProduct()
+getProducts()
 {
-  return this.data1;
+  return this.data;
 }
 
 getCart()
@@ -50,18 +48,19 @@ addProduct(product)
   let added = false;
   for(let p of this.cart)
   {
-    if(p.id == product.id){
+    if(p.id === product.id)
+    {
       p.amount += 1;
-      added =true;
+      added = true;
       break;
     }
-    if(!added)
-    {
-      product.amount =1;
-      this.cart.push(product);
-    }
-    this.numCartItems.next(this.numCartItems.value + 1);
   }
+  if(!added)
+  {
+    product.amount = 1;
+    this.cart.push(product);
+  }
+  this.numCartItems.next(this.numCartItems.value + 1);
 }
 
 decreaseProduct(product)

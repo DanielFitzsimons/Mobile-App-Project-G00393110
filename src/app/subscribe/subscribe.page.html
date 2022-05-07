@@ -9,17 +9,16 @@
 
 <ion-item>
   <ion-label position="floating">Name</ion-label>
-  <ion-input></ion-input>
+  <ion-input>{{name}}</ion-input>
+</ion-item>
+<ion-item>
+  <ion-label position="floating">Email</ion-label>
+  <ion-input>{{email}}</ion-input>
 </ion-item>
 
+<center><ion-button color="secondary" (click)="subscribed()">Subscribe to Newsletter</ion-button></center>
 
-<!-- Number type input -->
-<ion-input type="number" value="0">Age: </ion-input>
-
-
-
-
-<center><ion-button expand="full" color="light" (click)="home()">Return home</ion-button> </center>
+<center><ion-button color="tertiary" expand="full" color="light" (click)="home()">Return home</ion-button> </center>
 
 
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController, AlertController } from '@ionic/angular';
+import { NavController, ModalController, AlertController } from '@ionic/angular';
 import { Product } from 'src/app/Services/cart.service';
 import { CartService } from 'src/app/Services/cart.service';
 @Component({
@@ -12,7 +12,7 @@ export class CartModalPage implements OnInit {
 cart: Product[] = [];
 
 
-  constructor(private cartService: CartService, private modalctrl: ModalController,  private alertCtrl: AlertController ) { }
+  constructor(private cartService: CartService, private modalctrl: ModalController,  private alertCtrl: AlertController, private navCtrl:NavController ) { }
 
   ngOnInit() {
     this.cart = this.cartService.getCart();
@@ -51,7 +51,7 @@ cart: Product[] = [];
       buttons: ['OK']
     });
     alert.present().then(() => {
-      this.modalctrl.dismiss();
+      this.navCtrl.navigateBack('/home');
     });
   }
 }

@@ -1,11 +1,32 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>feedback</ion-title>
+    <ion-title color="tertiary">feedback</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content class="color">
+  <ion-title>Current Feedback {{userFeed}}</ion-title>
+  <ion-list>
+  <ion-radio-group [(ngModel)]="userFeed">
+  <ion-item>
+  <ion-label>Pleased</ion-label>
+  <ion-radio slot="start" value="Pleased"></ion-radio>
+  </ion-item>
+  <ion-item>
+  <ion-label>50/50</ion-label>
+  <ion-radio slot="start"  value="50/50"></ion-radio>
+  </ion-item>
+  <ion-item>
+  <ion-label>Need a little more</ion-label>
+  <ion-radio  slot="start" value="Need a little more" ></ion-radio>
+  </ion-item>
+  <ion-item>
+  <ion-label>Lack of information</ion-label>
+  <ion-radio slot="start"  value="Lack of information" ></ion-radio>
+  </ion-item>
+  </ion-radio-group>
+</ion-list>
+<ion-button (click) ="save()">Save</ion-button>
 </ion-content>
 
 <center><ion-button expand="full" color="light" (click)="home()">Return home</ion-button> </center>
